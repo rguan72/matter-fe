@@ -1,74 +1,44 @@
 {
-  "name": "@coreui/coreui-free-react-admin-template",
-  "version": "2.6.0",
-  "description": "CoreUI React Open Source Bootstrap 4 Admin Template",
-  "author": "Łukasz Holeczek",
-  "homepage": "https://coreui.io",
-  "copyright": "Copyright 2017-2019 creativeLabs Łukasz Holeczek",
-  "license": "MIT",
+  "name": "gatsby-starter-default",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:coreui/coreui-free-react-admin-template.git"
-  },
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@coreui/coreui": "^2.1.16",
-    "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.3.1",
-    "@coreui/icons": "0.3.0",
-    "@coreui/react": "^2.5.4",
-    "bootstrap": "^4.3.1",
-    "chart.js": "^2.9.2",
-    "classnames": "^2.2.6",
-    "core-js": "^3.4.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
-    "flag-icon-css": "^3.4.5",
-    "font-awesome": "^4.7.0",
-    "node-sass": "^4.13.0",
+    "gatsby": "^2.18.4",
+    "gatsby-image": "^2.2.34",
+    "gatsby-plugin-manifest": "^2.2.30",
+    "gatsby-plugin-offline": "^3.0.24",
+    "gatsby-plugin-react-helmet": "^3.1.16",
+    "gatsby-plugin-sharp": "^2.3.4",
+    "gatsby-source-filesystem": "^2.1.39",
+    "gatsby-transformer-sharp": "^2.3.6",
     "prop-types": "^15.7.2",
-    "react": "^16.11.0",
-    "react-app-polyfill": "^1.0.4",
-    "react-chartjs-2": "^2.8.0",
-    "react-dom": "^16.11.0",
-    "react-router-config": "^5.1.1",
-    "react-router-dom": "^5.1.2",
-    "react-test-renderer": "^16.11.0",
-    "reactstrap": "^8.1.1",
-    "simple-line-icons": "^2.4.1"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "react-scripts": "^3.2.0"
+    "prettier": "^1.19.1"
   },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:cov": "npm test -- --coverage --watchAll=false",
-    "test:debug": "react-scripts --inspect-brk test --runInBand",
-    "eject": "react-scripts eject"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
   "bugs": {
-    "url": "https://github.com/coreui/coreui-free-react-admin-template/issues"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 9",
-    "not op_mini all"
-  ],
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!**/*index.js",
-      "!src/serviceWorker.js",
-      "!src/polyfill.js"
-    ]
-  },
-  "engines": {
-    "node": ">=8.10",
-    "npm": ">=6"
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }

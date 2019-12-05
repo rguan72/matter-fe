@@ -1,177 +1,97 @@
-[![@coreui coreui](https://img.shields.io/badge/@coreui%20-coreui-lightgrey.svg?style=flat-square)](https://github.com/coreui/coreui)
-[![npm package][npm-coreui-badge]][npm-coreui]
-[![NPM downloads][npm-coreui-download]][npm-coreui]  
-[![@coreui react](https://img.shields.io/badge/@coreui%20-react-lightgrey.svg?style=flat-square)](https://github.com/coreui/react)
-[![npm package][npm-coreui-react-badge]][npm-coreui-react]
-[![NPM downloads][npm-coreui-react-download]][npm-coreui-react]
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<p align="center">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby's default starter
+</h1>
 
-[npm-coreui]: https://www.npmjs.com/package/@coreui/coreui
-[npm-coreui-badge]: https://img.shields.io/npm/v/@coreui/coreui.png?style=flat-square
-[npm-coreui-download]: https://img.shields.io/npm/dm/@coreui/coreui.svg?style=flat-square
-[npm-coreui-react]: https://www.npmjs.com/package/@coreui/react
-[npm-coreui-react-badge]: https://img.shields.io/npm/v/@coreui/react.png?style=flat-square
-[npm-coreui-react-download]: https://img.shields.io/npm/dm/@coreui/react.svg?style=flat-square
+Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-# CoreUI Free React Admin Template v2 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=CoreUI%20-%20Free%20React%20Admin%20Template%20&url=https://coreui.io/react/&hashtags=bootstrap,admin,template,dashboard,panel,free,angular,react,vue)
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
-Please help us on [Product Hunt](https://www.producthunt.com/posts/coreui-open-source-bootstrap-4-admin-template-with-angular-2-react-js-vue-js-support) and [Designer News](https://www.designernews.co/stories/81127). Thanks in advance!
+## 🚀 Quick start
 
-Curious why I decided to create CoreUI? Please read this article: [Jack of all trades, master of none. Why Bootstrap Admin Templates suck.](https://medium.com/@lukaszholeczek/jack-of-all-trades-master-of-none-5ea53ef8a1f#.7eqx1bcd8)
+1.  **Create a Gatsby site.**
 
-CoreUI is an Open Source Bootstrap Admin Template. But CoreUI is not just another Admin Template. It goes way beyond hitherto admin templates thanks to transparent code and file structure. And if that's not enough, let’s just add that CoreUI consists bunch of unique features and over 1000 high quality icons.
+    Use the Gatsby CLI to create a new site, specifying the default starter.
 
-CoreUI is based on Bootstrap 4 and offers 6 versions: [HTML5 AJAX](https://github.com/coreui/free-bootstrap-admin-template-ajax), [HTML5](https://github.com/coreui/free-angular-admin-template), [Angular 2+](https://github.com/coreui/free-angular-admin-template), [React.js](https://github.com/coreui/free-react-admin-template) & [Vue.js](https://github.com/coreui/free-vue-admin-template), [.NET Core 2](https://github.com/coreui/free-dotnet-admin-template).
+    ```shell
+    # create a new Gatsby site using the default starter
+    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+    ```
 
-CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of redundant components, so the app is light enough to offer ultimate user experience. This means mobile devices also, where the navigation is just as easy and intuitive as on a desktop or laptop. The CoreUI Layout API lets you customize your project for almost any device – be it Mobile, Web or WebApp – CoreUI covers them all!
+1.  **Start developing.**
 
-## Table of Contents
+    Navigate into your new site’s directory and start it up.
 
-* [Versions](#versions)
-* [CoreUI Pro](#coreui-pro)
-* [Admin Templates built on top of CoreUI Pro](#admin-templates-built-on-top-of-coreui-pro)
-* [Installation](#installation)
-* [Usage](#usage)
-* [What's included](#whats-included)
-* [Documentation](#documentation)
-* [Contributing](#contributing)
-* [Versioning](#versioning)
-* [Creators](#creators)
-* [Community](#community)
-* [Community Projects](#community-projects)
-* [License](#license)
-* [Support CoreUI Development](#support-coreui-development)
+    ```shell
+    cd my-default-starter/
+    gatsby develop
+    ```
 
-## Versions
+1.  **Open the source code and start editing!**
 
-* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
-* [CoreUI Free Bootstrap Admin Template (Ajax)](https://github.com/coreui/coreui-free-bootstrap-admin-template-ajax)
-* [CoreUI Free Angular 2+ Admin Template](https://github.com/coreui/coreui-free-angular-admin-template)
-* 🚧 CoreUI Free .NET Core 2 Admin Template (Available Soon)
-* [CoreUI Free React.js Admin Template](https://github.com/coreui/coreui-free-react-admin-template)
-* [CoreUI Free Vue.js Admin Template](https://github.com/coreui/coreui-free-vue-admin-template)
+    Your site is now running at `http://localhost:8000`!
 
-## CoreUI Pro
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-* 💪  [CoreUI Pro Bootstrap Admin Template](https://coreui.io/pro/)
-* 💪  [CoreUI Pro Bootstrap Admin Template (Ajax)](https://coreui.io/pro/)
-* 💪  [CoreUI Pro Angular Admin Template](https://coreui.io/pro/angular)
-* 💪  [CoreUI Pro React Admin Template](https://coreui.io/pro/react)
-* 💪  [CoreUI Pro Vue Admin Template](https://coreui.io/pro/vue)
+    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## Admin Templates built on top of CoreUI Pro
+## 🧐 What's inside?
 
-| CoreUI Pro | Prime | Root | Alba | Leaf |
-| --- | --- | --- | --- | --- |
-| [![CoreUI Pro React Admin Template](https://coreui.io/assets/img/example-coureui.jpg)](https://coreui.io/pro/react/) | [![Prime React Admin Template](https://genesisui.com/assets/img/templates/prime1280.jpg)](https://genesisui.com/admin-templates/reactjs/prime/?support=1) | [![Root React Admin Template](https://genesisui.com/assets/img/templates/root1280.jpg)](https://genesisui.com/admin-templates/reactjs/root/?support=1) | [![Alba React Admin Template](https://genesisui.com/assets/img/templates/alba1280.jpg)](https://genesisui.com/admin-templates/reactjs/alba/?support=1) | [![Leaf React Admin Template](https://genesisui.com/assets/img/templates/leaf1280.jpg)](https://genesisui.com/admin-templates/reactjs/leaf/?support=1)
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-## Installation
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
 
-``` bash
-# clone the repo
-$ git clone https://github.com/coreui/coreui-free-react-admin-template.git my-project
+1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-# go into app's directory
-$ cd my-project
+2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-# install app's dependencies
-$ npm install
-```
+3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-## Create React App
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-see also:
-[User Guide](CRA.md)
+5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-### Basic usage
+6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-``` bash
-# dev server  with hot reload at http://localhost:3000
-$ npm start
-```
+7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-Navigate to [http://localhost:3000](http://localhost:3000). The app will automatically reload if you change any of the source files.
+8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-### Build
+9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
 
-Run `build` to build the project. The build artifacts will be stored in the `build/` directory.
+10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-```bash
-# build for production with minification
-$ npm run build
-```
+11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-## What's included
+12. **`README.md`**: A text file containing useful reference information about your project.
 
-Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
+## 🎓 Learning Gatsby
 
-```
-CoreUI-React#v2.0.0
-├── public/          #static files
-│   ├── assets/      #assets
-│   └── index.html   #html template
-│
-├── src/             #project root
-│   ├── containers/  #container source
-│   ├── scss/        #user scss/css source
-│   ├── views/       #views source
-│   ├── App.js
-│   ├── App.test.js
-│   ├── index.js
-│   ├── _nav.js      #sidebar config
-│   └── routes.js    #routes config
-│
-└── package.json
-```
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
 
-## Documentation
+- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 
-The documentation for the CoreUI  Admin Template is hosted at our website [CoreUI for React](https://coreui.io/react/)
+- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
+## 💫 Deploy
 
-## Contributing
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 
-Please read through our [contributing guidelines](https://github.com/coreui/coreui-free-react-admin-template/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
-
-Editor preferences are available in the [editor config](https://github.com/coreui/coreui-free-react-admin-template/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
-
-## Versioning
-
-For transparency into our release cycle and in striving to maintain backward compatibility, CoreUI Free Admin Template is maintained under [the Semantic Versioning guidelines](http://semver.org/).
-
-See [the Releases section of our project](https://github.com/coreui/coreui-free-react-admin-template/releases) for changelogs for each release version.
-
-## Creators
-
-**Łukasz Holeczek**
-* <https://twitter.com/lukaszholeczek>
-* <https://github.com/mrholek>
-
-**Andrzej Kopański**
-* <https://github.com/xidedix>
-
-## Community
-
-Get updates on CoreUI's development and chat with the project maintainers and community members.
-
-- Follow [@core_ui on Twitter](https://twitter.com/core_ui).
-- Read and subscribe to [CoreUI Blog](https://coreui.ui/blog/).
-
-### Community Projects
-
-Some of projects created by community but not maintained by CoreUI team.
-
-* [NuxtJS + Vue CoreUI](https://github.com/muhibbudins/nuxt-coreui)
-* [Colmena](https://github.com/colmena/colmena)
-* [mvelosop/AspNetCore2CoreUI](https://github.com/mvelosop/AspNetCore2CoreUI)
-
-## Copyright and license
-
-copyright 2018 creativeLabs Łukasz Holeczek. Code released under [the MIT license](LICENSE).
-There is only one limitation you can't can’t re-distribute the CoreUI as stock. You can’t do this if you modify the CoreUI. In past we faced some problems with persons who tried to sell CoreUI based templates.
-
-## Support CoreUI Development
-
-CoreUI is an MIT licensed open source project and completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by donating on [PayPal](https://www.paypal.me/holeczek), buying [CoreUI Pro Version](https://coreui.io/pro) or buying one of our [premium admin templates](https://genesisui.com/?support=1).
-
-As of now I am exploring the possibility of working on CoreUI fulltime - if you are a business that is building core products using CoreUI, I am also open to conversations regarding custom sponsorship / consulting arrangements. Get in touch on [Twitter](https://twitter.com/lukaszholeczek).
+<!-- AUTO-GENERATED-CONTENT:END -->
