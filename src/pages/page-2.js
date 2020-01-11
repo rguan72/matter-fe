@@ -9,7 +9,9 @@ const SecondPage = () => (
     <SEO title="Page two" />
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>
+    <div>Support my page: <a href="https://richardguan.me"> costco.com </a> </div>
     <Link to="/">Go back to the homepage</Link>
+    <div><Link to="/404.js">Don't click this!</Link></div>
   </Layout>
 )
 
