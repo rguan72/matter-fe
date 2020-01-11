@@ -18,38 +18,50 @@ const IndexPage = () => {
   const [oppCon, setoppCon] = useState(0)
   const [facUsage, setfacUsage] = useState(0)
   const [options, setOptions] = useState([])
-  const [company, setCompany] = useState("Odonata")
+  const [company, setCompany] = useState(null)
 
   useEffect(() => {
     fetch("http://localhost:9000/api/companies")
       .then(res => res.json())
       .then(res => {
-        setOptions(res.map(comp => ({ value: comp.name, label: comp.name })))
+        const options = res.map(comp => ({ value: comp.name, label: comp.name }))
+        setOptions(options);
       })
-    console.log(company)
-    fetch(`http://localhost:9000/api/companies/${company}`)
-      .then(res => res.json())
-      .then(res => {
-        // multiply by scores on front end
-        setmentorTeam(res.matter_team)
-        setmentorClinic(res.mentor_clinic)
-        setWorkshop(res.workshop)
-        setmatterEvent(res.matter_event)
-        setpartnerEng(res.partner_eng)
-        setoppCon(res.opp_conn)
-        setfacUsage(res.fac)
-      })
+    if (company) {
+      fetch(`http://localhost:9000/api/companies/${company}`)
+        .then(res => res.json())
+        .then(res => {
+          // multiply by scores on front end
+          setmentorTeam(res.matter_team)
+          setmentorClinic(res.mentor_clinic)
+          setWorkshop(res.workshop)
+          setmatterEvent(res.matter_event)
+          setpartnerEng(res.partner_eng)
+          setoppCon(res.opp_conn)
+          setfacUsage(res.fac)
+        })
+    }
+    else {
+      setmentorTeam("--")
+      setmentorClinic("--")
+      setWorkshop("--")
+      setmatterEvent("--")
+      setpartnerEng("--")
+      setoppCon("--")
+      setfacUsage("--")
+    }
   }, [company])
 
   return (
     <Layout>
       <SEO title="Home" />
       <Select
-        value={company}
         options={options}
         onChange={selectedOption => setCompany(selectedOption.value)}
       />
-      <h1>{company}</h1>
+      <Box m={3} mb={0} ml={0}>
+        <Typography variant="h3">{company}</Typography>
+      </Box>
       <Box display="flex" flexDirection="row">
         <Card className={`${classes.card} ${classes.noMarginLeft}`}>
           <Typography variant="h6"> MATTER Team </Typography>
