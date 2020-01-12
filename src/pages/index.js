@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
@@ -8,6 +8,7 @@ import Select from "react-select"
 import Layout from "../components/layout"
 import Dropzone from '../components/dropzone';
 import SEO from "../components/seo"
+import { getOptions, getCompany } from "../utils";
 
 const IndexPage = () => {
   const classes = useStyles()
@@ -21,46 +22,48 @@ const IndexPage = () => {
   const [options, setOptions] = useState([])
   const [company, setCompany] = useState(null)
 
-  useEffect(() => {
-    fetch("http://localhost:9000/api/companies")
-      .then(res => res.json())
-      .then(res => {
-        const options = res.map(comp => ({ value: comp.name, label: comp.name }))
-        setOptions(options);
+  const onDrop = async (acceptedFiles) => {
+    const formData = new FormData()
+    formData.append("file", acceptedFiles[0])
+    if (acceptedFiles[0] !== undefined) {
+      await fetch("http://localhost:9000/api/engagements/upload", {
+        method: "POST",
+        body: formData,
       })
-    if (company) {
-      fetch(`http://localhost:9000/api/companies/${company}`)
-        .then(res => res.json())
-        .then(res => {
-          // multiply by scores on front end
-          setmentorTeam(res.matter_team)
-          setmentorClinic(res.mentor_clinic)
-          setWorkshop(res.workshop)
-          setmatterEvent(res.matter_event)
-          setpartnerEng(res.partner_eng)
-          setoppCon(res.opp_conn)
-          setfacUsage(res.fac)
-        })
+      getCompany(company, {
+        setmentorTeam,
+        setmentorClinic,
+        setWorkshop,
+        setmatterEvent,
+        setpartnerEng,
+        setoppCon,
+        setfacUsage,
+      })
+      getOptions(setOptions);
     }
-    else {
-      setmentorTeam("--")
-      setmentorClinic("--")
-      setWorkshop("--")
-      setmatterEvent("--")
-      setpartnerEng("--")
-      setoppCon("--")
-      setfacUsage("--")
-    }
+  }
+
+  useEffect(() => {
+    getOptions(setOptions);
+    getCompany(company, {
+      setmentorTeam,
+      setmentorClinic,
+      setWorkshop,
+      setmatterEvent,
+      setpartnerEng,
+      setoppCon,
+      setfacUsage
+    });
   }, [company])
 
   return (
     <Layout>
       <SEO title="Home" />
-      <Select
-        options={options}
-        onChange={selectedOption => setCompany(selectedOption.value)}
-      />
-      <Dropzone />
+        <Select
+          options={options}
+          onChange={selectedOption => {console.log("rg1"); setCompany(selectedOption.value)}}
+        />
+        <Dropzone onDrop={onDrop} />
       <Box m={3} mb={0} ml={0}>
         <Typography variant="h3">{company}</Typography>
       </Box>
@@ -110,6 +113,12 @@ const useStyles = makeStyles({
   noMarginLeft: {
     marginLeft: 0,
   },
+  select: {
+    minWidth: 300,
+    marginRight: 50,
+    flexBasis: 2,
+    flexGrow: 1
+  }
 })
 
 export default IndexPage
