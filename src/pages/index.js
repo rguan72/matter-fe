@@ -4,9 +4,10 @@ import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
 import Box from "@material-ui/core/Box"
 import Card from "@material-ui/core/Card"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Select from "react-select"
+import Layout from "../components/layout"
+import Dropzone from '../components/dropzone';
+import SEO from "../components/seo"
 
 const IndexPage = () => {
   const classes = useStyles()
@@ -59,6 +60,7 @@ const IndexPage = () => {
         options={options}
         onChange={selectedOption => setCompany(selectedOption.value)}
       />
+      <Dropzone />
       <Box m={3} mb={0} ml={0}>
         <Typography variant="h3">{company}</Typography>
       </Box>
