@@ -61,7 +61,7 @@ const IndexPage = () => {
       <SEO title="Home" />
         <Select
           options={options}
-          onChange={selectedOption => {console.log("rg1"); setCompany(selectedOption.value)}}
+          onChange={selectedOption =>  setCompany(selectedOption.value)}
         />
         <Dropzone onDrop={onDrop} />
       <Box m={3} mb={0} ml={0}>

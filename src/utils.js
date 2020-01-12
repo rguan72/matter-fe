@@ -11,7 +11,6 @@ function getOptions(setOptions) {
 }
 
 function getCompany(company, {setmentorTeam, setmentorClinic, setWorkshop, setmatterEvent, setpartnerEng, setoppCon, setfacUsage}) {
-    console.log("getCompany", company);
     if (company) {
       fetch(`http://localhost:9000/api/companies/${company}`)
         .then(res => res.json())
