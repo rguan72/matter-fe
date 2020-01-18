@@ -4,6 +4,9 @@ import { makeStyles } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
 import Box from "@material-ui/core/Box"
 import Card from "@material-ui/core/Card"
+import IconButton from "@material-ui/core/IconButton";
+import Snackbar from "@material-ui/core/Snackbar"
+import CloseIcon from "@material-ui/icons/Close";
 import Select from "react-select"
 import Layout from "../components/layout"
 import Dropzone from '../components/dropzone';
@@ -21,15 +24,24 @@ const IndexPage = () => {
   const [facUsage, setfacUsage] = useState(0)
   const [options, setOptions] = useState([])
   const [company, setCompany] = useState(null)
+  const [open, setOpen] = useState(false)
+  const [message, setMessage] = useState("");
 
   const onDrop = async (acceptedFiles) => {
     const formData = new FormData()
     formData.append("file", acceptedFiles[0])
     if (acceptedFiles[0] !== undefined) {
-      await fetch("http://localhost:9000/api/engagements/upload", {
-        method: "POST",
-        body: formData,
-      })
+      const res = await fetch(`${process.env.URL}/api/engagements/upload`, {
+          method: "POST",
+          body: formData,
+        })
+      if (!res.ok) { 
+        setOpen(true)
+        res.text().then(text => setMessage(text));
+        return
+      }
+      setMessage("Upload complete!")
+      setOpen(true)
       getCompany(company, {
         setmentorTeam,
         setmentorClinic,
@@ -56,14 +68,18 @@ const IndexPage = () => {
     });
   }, [company])
 
+  function handleClose() {
+    setOpen(false);
+  }
+
   return (
     <Layout>
       <SEO title="Home" />
-        <Select
-          options={options}
-          onChange={selectedOption =>  setCompany(selectedOption.value)}
-        />
-        <Dropzone onDrop={onDrop} />
+      <Select
+        options={options}
+        onChange={selectedOption => setCompany(selectedOption.value)}
+      />
+      <Dropzone onDrop={onDrop} />
       <Box m={3} mb={0} ml={0}>
         <Typography variant="h3">{company}</Typography>
       </Box>
@@ -99,12 +115,36 @@ const IndexPage = () => {
           <Typography> {facUsage} </Typography>
         </Card>
       </Box>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        ContentProps={{
+          "aria-describedby": "message-id",
+        }}
+        message={<span id="message-id">{message}</span>}
+        action={[
+          <IconButton
+            key="close"
+            aria-label="close"
+            color="inherit"
+            className={classes.close}
+            onClick={handleClose}
+          >
+            <CloseIcon />
+          </IconButton>,
+        ]}
+      />
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   )
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   card: {
     padding: 20,
     margin: 40,
@@ -117,8 +157,11 @@ const useStyles = makeStyles({
     minWidth: 300,
     marginRight: 50,
     flexBasis: 2,
-    flexGrow: 1
-  }
-})
+    flexGrow: 1,
+  },
+  close: {
+    padding: theme.spacing(0.5),
+  },
+}))
 
 export default IndexPage

@@ -6,6 +6,8 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.7.1",
+    "@material-ui/icons": "^4.5.1",
+    "csv-file-validator": "^1.7.4",
     "gatsby": "^2.18.20",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-manifest": "^2.2.30",
