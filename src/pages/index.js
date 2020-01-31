@@ -22,7 +22,7 @@ const IndexPage = () => {
   const [oppCon, setoppCon] = useState(0)
   const [facUsage, setfacUsage] = useState(0)
   const [options, setOptions] = useState([])
-  const [company, setCompany] = useState(null)
+  const [company, setCompany] = useState(sessionStorage.getItem("company") || null)
   const [open, setOpen] = useState(false)
   const [message, setMessage] = useState("");
   const [token, setToken] = useState(sessionStorage.getItem("token") || "");
@@ -63,6 +63,10 @@ const IndexPage = () => {
   useEffect(() => {
     sessionStorage.setItem("instURL", instURL)
   }, [instURL]);
+
+  useEffect(() => {
+    sessionStorage.setItem("company", company)
+  }, [company])
 
   useEffect(() => {
     getCompany(company, {
