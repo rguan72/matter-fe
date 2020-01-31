@@ -10,7 +10,7 @@ import Select from "react-select"
 import Layout from "../components/layout"
 import Dropzone from '../components/dropzone';
 import SEO from "../components/seo"
-import { getOptions, getCompany } from "../utils";
+import { getOptions, getCompany, authSalesforce, updateOptions } from "../utils";
 
 const IndexPage = () => {
   const classes = useStyles()
@@ -25,6 +25,8 @@ const IndexPage = () => {
   const [company, setCompany] = useState(null)
   const [open, setOpen] = useState(false)
   const [message, setMessage] = useState("");
+  const [token, setToken] = useState(sessionStorage.getItem("token") || "");
+  const [instURL, setinstURL] = useState(sessionStorage.getItem("instURL") || "");
 
   const onDrop = async (acceptedFiles) => {
     const formData = new FormData()
@@ -55,7 +57,14 @@ const IndexPage = () => {
   }
 
   useEffect(() => {
-    getOptions(setOptions);
+    sessionStorage.setItem("token", token);
+  }, [token]);
+
+  useEffect(() => {
+    sessionStorage.setItem("instURL", instURL)
+  }, [instURL]);
+
+  useEffect(() => {
     getCompany(company, {
       setmentorTeam,
       setmentorClinic,
@@ -66,6 +75,17 @@ const IndexPage = () => {
       setfacUsage
     });
   }, [company])
+
+  useEffect(() => {
+    const fetchOptions = async () => {
+      const data = await authSalesforce()
+      setToken(data.access_token)
+      setinstURL(data.instance_url)
+      updateOptions(data.access_token, instURL)
+    }
+    fetchOptions();
+    getOptions(setOptions);
+  }, [])
 
   function handleClose() {
     setOpen(false);

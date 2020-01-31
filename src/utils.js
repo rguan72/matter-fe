@@ -37,6 +37,20 @@ function getCompany(company, {setmentorTeam, setmentorClinic, setWorkshop, setma
     }
 }
 
+function authSalesforce() {
+  return fetch(`${process.env.URL}/api/users/salesforce/auth`, { method: "POST" }).then(res => res.json())
+}
+
+function updateOptions(token, instance_url) {
+  return fetch(`${process.env.URL}/api/companies/salesforce/update`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify({ token: token, instance_url: instance_url }),
+  })
+}
+
 function validateCSV(file, onErr) {
   const config = {
     headers: [
@@ -89,4 +103,4 @@ function validateCSV(file, onErr) {
 }
 
 
-export { getOptions, getCompany, validateCSV }
+export { getOptions, getCompany, validateCSV, authSalesforce, updateOptions }
