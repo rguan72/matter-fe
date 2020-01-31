@@ -26,13 +26,12 @@ const IndexPage = () => {
   const [open, setOpen] = useState(false)
   const [message, setMessage] = useState("");
   const [token, setToken] = useState(sessionStorage.getItem("token") || "");
-  const [instURL, setinstURL] = useState(sessionStorage.getItem("instURL") || "");
 
   const onDrop = async (acceptedFiles) => {
     const formData = new FormData()
     formData.append("file", acceptedFiles[0])
     if (acceptedFiles[0] !== undefined) {
-      const res = await fetch(`${process.env.URL}/api/engagements/upload`, {
+      const res = await fetch(`${process.env.URL}/api/engagements/upload?token=${token}`, {
           method: "POST",
           body: formData,
         })
@@ -61,10 +60,6 @@ const IndexPage = () => {
   }, [token]);
 
   useEffect(() => {
-    sessionStorage.setItem("instURL", instURL)
-  }, [instURL]);
-
-  useEffect(() => {
     sessionStorage.setItem("company", company)
   }, [company])
 
@@ -84,8 +79,7 @@ const IndexPage = () => {
     const fetchOptions = async () => {
       const data = await authSalesforce()
       setToken(data.access_token)
-      setinstURL(data.instance_url)
-      updateOptions(data.access_token, instURL)
+      updateOptions(data.access_token)
     }
     fetchOptions();
     getOptions(setOptions);

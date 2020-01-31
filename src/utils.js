@@ -41,13 +41,13 @@ function authSalesforce() {
   return fetch(`${process.env.URL}/api/users/salesforce/auth`, { method: "POST" }).then(res => res.json())
 }
 
-function updateOptions(token, instance_url) {
+function updateOptions(token) {
   return fetch(`${process.env.URL}/api/companies/salesforce/update`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
-    body: JSON.stringify({ token: token, instance_url: instance_url }),
+    body: JSON.stringify({ token: token }),
   })
 }
 
