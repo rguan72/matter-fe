@@ -1,7 +1,27 @@
 import CSVFileValidator from "csv-file-validator";
 
+function login(email, password) {
+  return fetch(`${process.env.URL}/api/users/login`, { 
+    method: "POST",  
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email: email, password: password })
+  })
+}
+
+function register(email, password1, password2, regKey) {
+  return fetch(`${process.env.URL}/api/users/register`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email: email, password: password1, password2: password2, registrationKey: regKey})
+  })
+}
+
 function getOptions(setOptions) {
-    fetch(`${process.env.URL}/api/companies`)
+    return fetch(`${process.env.URL}/api/companies`)
       .then(res => res.json())
       .then(res => {
         const options = res.map(comp => ({
@@ -12,9 +32,9 @@ function getOptions(setOptions) {
       })
 }
 
-function getCompany(company, {setmentorTeam, setmentorClinic, setWorkshop, setmatterEvent, setpartnerEng, setoppCon, setfacUsage}) {
+function getCompany(company, token, {setmentorTeam, setmentorClinic, setWorkshop, setmatterEvent, setpartnerEng, setoppCon, setfacUsage}) {
     if (company) {
-      fetch(`${process.env.URL}/api/companies/${company}`)
+      return fetch(`${process.env.URL}/api/companies/${company}?token=${token}`)
         .then(res => res.json())
         .then(res => {
           // multiply by scores on front end
@@ -94,13 +114,7 @@ function validateCSV(file, onErr) {
   }
   CSVFileValidator(file, config)
     .then(csvData => console.log(csvData));
-// CSVFileValidator(file, config)
-//   .then(csvData => ({
-//     data: csvData.data, // Array of objects from file
-//     invalid: csvData.inValidMessages // Array of error messages
-//   }))
-//   .catch(err => onErr(err))
 }
 
 
-export { getOptions, getCompany, validateCSV, authSalesforce, updateOptions }
+export { getOptions, getCompany, validateCSV, authSalesforce, updateOptions, login, register }
