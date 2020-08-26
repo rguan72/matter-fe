@@ -23,12 +23,20 @@ const IndexPage = () => {
   const [oppCon, setoppCon] = useState(0)
   const [facUsage, setfacUsage] = useState(0)
   const [options, setOptions] = useState([])
-  const [company, setCompany] = useState(sessionStorage.getItem("company") || null)
+  let companyInit = null
+  if (typeof window !== 'undefined') {
+    companyInit = sessionStorage.getItem("company")
+  }
+  const [company, setCompany] = useState(companyInit || null)
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState(sessionStorage.getItem("token") || "");
+  let tokenInit = null
+  if (typeof window !== 'undefined') {
+    tokenInit = sessionStorage.getItem("token")
+  }
+  const [token, setToken] = useState(tokenInit || "");
 
   const onDrop = async (acceptedFiles) => {
     const formData = new FormData()
